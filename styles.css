@@ -15,9 +15,9 @@ body {
 #container {
     display: grid;
     height: 100vh;
-    overflow: none;
-    grid-template-columns: minmax(300px, 20%) 100%;
-    grid-template-rows: minmax(150px, 15%) 100%;
+    overflow: hidden;
+    grid-template-columns: minmax(300px, 20%) 1fr;
+    grid-template-rows: 220px 1fr;
     grid-template-areas:
         'sidebar header'
         'sidebar main-content'
@@ -31,26 +31,39 @@ body {
     grid-area: header;
     display: grid;
     grid-template-columns: 60% 40%;
+    overflow: visible;
+    grid-gap: 25px;
+    grid-template-areas: 
+        'header-left header-right';
     
 }
 
 #header-left {
     grid-column: 1 / 2;
+    grid-area: header-left;
     display: grid;
-    grid-template-rows: 30% 60%;
+    grid-template-rows: 20px 100px;
+    padding: 0px !important;
+    align-items: start;
+    
 }
 
 #header-left-top {
     grid-row: 1 / 2;
     display: grid;
-    grid-template-columns: 5% 95%;
+    grid-template-columns: 50px 1fr;
 
+}
+
+#header-left-top img {
+    align-self: center;
 }
 
 #header-left-bottom {
     grid-row: 2 / 3;
     display: grid;
-    grid-template-columns: 15% 85%;
+    grid-template-columns: 120px 1fr;
+    align-items: center;
 }
 
 #header-left-bottom #profile-pic-big {
@@ -60,19 +73,68 @@ body {
 #greeting-user {
     grid-column: 2 / 3;
     display: grid;
-    grid-template-rows: 25% 75%;
+    grid-template-rows: 30px 100px;
+    position: relative;
+    top: 10px;
+    
 }
 
 #greeting-user h4 {
     grid-row: 1 / 2;
+    align-self: start;
+    padding-top: 10px;
 }
 
-#greeting-user h2 {
+#greeting-user h1 {
     grid-row: 2 / 3;
+    align-self: start;
 }
 
 #header-right {
     grid-column: 2 / 3;
+    grid-area: header-right;
+    display: grid;
+    grid-template-rows: 20px 100px;
+    grid-gap: 40px;
+    align-items: center;
+}
+
+#header-right-top {
+    grid-row: 1 / 2;
+    display: grid;
+    grid-template-columns: 1fr 50px 1fr;
+    position: relative;
+    top: 10px;
+    grid-gap: 20px;
+    
+}
+
+#notifications-button {
+    align-self: end;
+    height: 50px;
+    width: 50px;
+    justify-self: end;
+}
+
+#user-name {
+    align-self: end;
+    justify-self: center;
+    margin: auto;
+}
+
+#header-right-bottom {
+    grid-row: 2 / 3;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 30px;
+    align-items: end;
+}
+
+#header-right-bottom button {
+    background-color: blue;
+    border-radius: 8px;
+    height: 50px;
+    width: 70px;
 }
 
 #sidebar {
