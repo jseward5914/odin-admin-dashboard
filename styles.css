@@ -15,7 +15,7 @@ body {
 #container {
     display: grid;
     height: 100vh;
-    overflow: hidden;
+    
     grid-template-columns: minmax(300px, 20%) 1fr;
     grid-template-rows: 220px 1fr;
     grid-template-areas:
@@ -31,8 +31,10 @@ body {
     grid-area: header;
     display: grid;
     grid-template-columns: 60% 40%;
-    overflow: visible;
+    
     grid-gap: 25px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    z-index: 1;
     grid-template-areas: 
         'header-left header-right';
     
@@ -57,6 +59,12 @@ body {
 
 #header-left-top img {
     align-self: center;
+}
+
+#search-bar {
+    border-radius: 30px;
+    border: none;
+    background-color: lightgray;
 }
 
 #header-left-bottom {
@@ -132,9 +140,10 @@ body {
 
 #header-right-bottom button {
     background-color: blue;
-    border-radius: 8px;
-    height: 50px;
-    width: 70px;
+    border-radius: 30px;
+    height: minmax(20px, 50px);
+    width: 150px;
+    border: none;
 }
 
 #sidebar {
@@ -146,6 +155,8 @@ body {
     grid-template-columns: 1fr;
     grid-template-rows: repeat(12, auto);
     justify-content: start;
+    z-index: 1;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
 }
 
 #sidebar ul {
@@ -202,4 +213,102 @@ ul {
     grid-column: 2 / 3;
     grid-row: 2 / 3;
     grid-area: main-content;
+    display: grid;
+    grid-template-columns: 75% 25%;
+    grid-template-rows: repeat(2, 1fr);
+    align-content: center;
+    padding: 50px !important;
+}
+
+#your-projects {
+    grid-column: 1 / 2;
+    grid-row: 1 / 3;
+}
+
+#project-cards {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(3, minmax(200px, 1fr));
+    grid-gap: 30px;
+
+    
+}
+
+.project-card {
+    height: 100%;
+    width: 100%;
+    background-color: whitesmoke;
+    border-left: inset 10px black;
+    border-bottom: inset 10px black;
+    box-sizing: border-box;
+    display: grid;
+    grid-template-columns: 1fr 12.5% 12.5% 12.5%;
+    grid-template-rows: 15% 1fr 20%;
+    border-radius: 5%;
+    grid-column-gap: 20px;
+}
+
+.project-card h3 {
+    grid-column: 1 / 5;
+    grid-row: 1 / 2;
+}
+
+.project-card p {
+    grid-column: 1 / 5;
+    grid-row: 2 / 3;
+}
+
+#favorite-button {
+    grid-column: 2 / 3;
+    grid-row: 3 / 4;
+}
+
+#watchlist-button {
+    grid-column: 3 / 4;
+    grid-row: 3 / 4;
+}
+
+#fork-button {
+    grid-column: 4 / 5;
+    grid-row: 3 / 4;
+}
+
+.project-card img {
+    height: 35px;
+    width: 35px;
+}
+
+#announcements {
+    grid-column: 2 / 3;
+    grid-row: 1 / 2;
+    display: inline-block;
+}
+
+#announcement-card, #trending-card {
+    background-color: whitesmoke;
+    border-radius: 5%;
+
+    width: 100%;
+    box-sizing: border-box;
+    margin-top: 33px !important;
+    
+
+}
+
+#trending {
+    grid-column: 2 / 3;
+    grid-row: 2 / 3;
+    overflow: none;
+    
+}
+
+#trending-card {
+    contain: layout;
+
+}
+
+.announcement {
+    display: grid;
+    grid-template-rows: 20% 1fr;
+    
 }
